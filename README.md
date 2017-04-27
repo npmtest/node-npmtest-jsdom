@@ -1,8 +1,8 @@
 # npmtest-jsdom
 
-#### test coverage for  [jsdom (v9.12.0)](https://github.com/tmpvar/jsdom#readme)  [![npm package](https://img.shields.io/npm/v/npmtest-jsdom.svg?style=flat-square)](https://www.npmjs.org/package/npmtest-jsdom) [![travis-ci.org build-status](https://api.travis-ci.org/npmtest/node-npmtest-jsdom.svg)](https://travis-ci.org/npmtest/node-npmtest-jsdom)
+#### basic test coverage for  [jsdom (v10.0.0)](https://github.com/tmpvar/jsdom#readme)  [![npm package](https://img.shields.io/npm/v/npmtest-jsdom.svg?style=flat-square)](https://www.npmjs.org/package/npmtest-jsdom) [![travis-ci.org build-status](https://api.travis-ci.org/npmtest/node-npmtest-jsdom.svg)](https://travis-ci.org/npmtest/node-npmtest-jsdom)
 
-#### A JavaScript implementation of the DOM and HTML standards
+#### A JavaScript implementation of many web standards
 
 [![NPM](https://nodei.co/npm/jsdom.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/jsdom)
 
@@ -10,7 +10,7 @@
 |--:|:--|
 | coverage : | [![istanbul-coverage](https://npmtest.github.io/node-npmtest-jsdom/build/coverage.badge.svg)](https://npmtest.github.io/node-npmtest-jsdom/build/coverage.html/index.html)|
 | test-report : | [![test-report](https://npmtest.github.io/node-npmtest-jsdom/build/test-report.badge.svg)](https://npmtest.github.io/node-npmtest-jsdom/build/test-report.html)|
-| build-artifacts : | [![build-artifacts](https://npmtest.github.io/node-npmtest-jsdom/glyphicons_144_folder_open.png)](https://github.com/npmtest/node-npmtest-jsdom/tree/gh-pages/build)|
+| test-server-github : | [![github.com test-server](https://npmtest.github.io/node-npmtest-jsdom/GitHub-Mark-32px.png)](https://npmtest.github.io/node-npmtest-jsdom/build/app/index.html) | | build-artifacts : | [![build-artifacts](https://npmtest.github.io/node-npmtest-jsdom/glyphicons_144_folder_open.png)](https://github.com/npmtest/node-npmtest-jsdom/tree/gh-pages/build)|
 
 - [https://npmtest.github.io/node-npmtest-jsdom/build/coverage.html/index.html](https://npmtest.github.io/node-npmtest-jsdom/build/coverage.html/index.html)
 
@@ -54,7 +54,9 @@
         "html-encoding-sniffer": "^1.0.1",
         "nwmatcher": ">= 1.3.9 < 2.0.0",
         "parse5": "^1.5.1",
+        "pn": "^1.0.0",
         "request": "^2.79.0",
+        "request-promise-native": "^1.0.3",
         "sax": "^1.2.1",
         "symbol-tree": "^3.2.1",
         "tough-cookie": "^2.3.2",
@@ -63,16 +65,16 @@
         "whatwg-url": "^4.3.0",
         "xml-name-validator": "^2.0.1"
     },
-    "description": "A JavaScript implementation of the DOM and HTML standards",
+    "description": "A JavaScript implementation of many web standards",
     "devDependencies": {
         "benchmark": "1.0.0",
         "browserify": "^14.0.0",
         "chai": "^3.5.0",
         "colors": "^1.1.2",
+        "ecstatic": "^2.1.0",
         "eslint": "^3.14.1",
         "eslint-plugin-html": "^2.0.0",
         "fs-readdir-recursive": "^1.0.0",
-        "http-server": "^0.9.0",
         "karma": "^1.4.1",
         "karma-browserify": "^5.1.1",
         "karma-chrome-launcher": "^2.0.0",
@@ -83,9 +85,9 @@
         "mocha-sugar-free": "^1.3.1",
         "nodeunit": "0.10.2",
         "optimist": "0.6.1",
-        "portfinder": "^1.0.12",
+        "portfinder": "^1.0.13",
         "q": "^1.4.1",
-        "selenium-standalone": "^6.0.0",
+        "selenium-standalone": "^6.0.1",
         "server-destroy": "^1.0.1",
         "st": "^1.2.0",
         "watchify": "^3.9.0",
@@ -94,10 +96,10 @@
     },
     "directories": {},
     "dist": {
-        "shasum": "e8c546fffcb06c00d4833ca84410fed7f8a097d4",
-        "tarball": "https://registry.npmjs.org/jsdom/-/jsdom-9.12.0.tgz"
+        "shasum": "3dda0b760aa248dd9b1392f8bb82e93ad70377b4",
+        "tarball": "https://registry.npmjs.org/jsdom/-/jsdom-10.0.0.tgz"
     },
-    "gitHead": "e0687795456773058755867e53c487aa3fe80e5b",
+    "gitHead": "50ebb593deb1b6c344b1a3c4c2e215b9a09f2fe2",
     "homepage": "https://github.com/tmpvar/jsdom#readme",
     "keywords": [
         "dom",
@@ -106,7 +108,7 @@
         "w3c"
     ],
     "license": "MIT",
-    "main": "./lib/jsdom",
+    "main": "./lib/api.js",
     "maintainers": [
         {
             "name": "tmpvar"
@@ -132,6 +134,7 @@
         "prepublish": "npm run convert-idl",
         "pretest": "npm run convert-idl && git submodule update --init --recursive",
         "test": "npm run test-mocha-all && npm run test-old",
+        "test-api": "mocha test/api",
         "test-browser": "npm run test-karma && npm run test-karma-worker && npm run test-browser-old",
         "test-browser-old": "node ./test/browser-runner",
         "test-karma": "karma start test/karma.conf.js",
@@ -143,7 +146,8 @@
         "test-wpt": "mocha test/web-platform-tests/index.js",
         "update-authors": "git log --format=\"%aN <%aE>\" | sort -f | uniq > AUTHORS.txt"
     },
-    "version": "9.12.0"
+    "version": "10.0.0",
+    "bin": {}
 }
 ```
 
